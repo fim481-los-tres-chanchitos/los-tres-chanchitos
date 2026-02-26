@@ -1,0 +1,95 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "los-tres-chanchitos"
+version = "0.1.0"
+description = "Proyecto para jugar con Git"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "FIM481" }]
+license = "MIT"
+license-files = ["LICENSE"]
+
+# Dependencias necesarias para ejecutar
+dependencies = [
+  "rich>=14",
+]
+
+[project.optional-dependencies]
+# Dependencias necesarias para trabajar
+dev = [
+  "pip-tools>=7",
+  "mypy>=1",
+  "pylint>=3",
+  "pylint-pytest >= 1.1",
+  "pytest>=8",
+  "pytest-cov>=5",
+  "ruff>=0.6",
+]
+
+# Dependencias necesarias para publicar
+release = [
+  "build>=1",
+  "twine>=5",
+]
+
+[project.scripts]
+los-tres-chanchitos = "los_tres_chanchitos.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = [
+  "-q",
+  "--strict-markers",
+  "--strict-config",
+  "--cov=los_tres_chanchitos",
+  "--cov-report=term-missing",
+]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["los_tres_chanchitos"]
+omit = ["*/__main__.py"]
+
+[tool.pylint.main]
+load-plugins = ["pylint_pytest"]
+
+[tool.pylint.messages_control]
+disable = ["C0114", "C0115", "C0116", "R0903"]
+
+[tool.coverage.report]
+skip_covered = true
+show_missing = true
+
+[tool.mypy]
+strict = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+  "E",   # pycodestyle errors
+  "F",   # pyflakes
+  "I",   # isort
+  "UP",  # pyupgrade
+  "B",   # flake8-bugbear
+]
+ignore = [
+  "E501", # line length handled by formatter
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
