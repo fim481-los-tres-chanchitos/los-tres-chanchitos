@@ -3,6 +3,9 @@ import argparse
 from rich import print as rich_print
 
 from los_tres_chanchitos import __version__
+from los_tres_chanchitos.defaults import original_scenario
+from los_tres_chanchitos.narrator import Narrator
+from los_tres_chanchitos.writer import Writer
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -12,17 +15,13 @@ def build_parser() -> argparse.ArgumentParser:
         action="version",
         version=f"los-tres-chanchitos {__version__}",
     )
-    parser.add_argument(
-        "name",
-        nargs="?",
-        default="mundo",
-        help="Nombre a saludar (default: mundo)",
-    )
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
-    args = parser.parse_args(argv)
-    rich_print(f"Hola, [green]{args.name}[/green]!")
+    parser.parse_args(argv)
+    writer = Writer(rich_print)
+    narrator = Narrator(writer)
+    narrator.tell(original_scenario())
     return 0
