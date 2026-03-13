@@ -1,0 +1,74 @@
+name: Validate
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validations:
+    name: Validations
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+          cache-dependency-path: |
+            requirements-dev.txt
+            requirements-release.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install -r requirements-dev.txt
+          python -m pip install -r requirements-release.txt
+          python -m pip install -e . --no-deps
+
+      - name: Check format (ruff format)
+        run: python -m ruff format --check .
+
+      - name: Lint (ruff check)
+        run: python -m ruff check .
+
+      - name: Type check (mypy)
+        run: python -m mypy src/
+
+      - name: Lint (pylint)
+        run: python -m pylint src/ tests/
+
+      - name: Run tests (pytest)
+        run: python -m pytest --cov-fail-under=80
+
+      - name: Security scan (bandit)
+        run: python -m pip install bandit && python -m bandit -q -r src/
+
+      - name: Dependency scan (pip-audit)
+        run: python -m pip install pip-audit && python -m pip_audit -r requirements.txt
+
+      - name: Build package
+        run: python -m build
+
+      - name: Check package metadata (twine)
+        run: python -m twine check dist/*
+
+      - name: Upload build artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-py313
+          path: dist/*
+          if-no-files-found: warn
