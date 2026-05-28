@@ -35,7 +35,7 @@ def writer(output: list[str]) -> Writer:
 def test_intro(writer: Writer, output: list[str]) -> None:
     writer.intro(3)
     assert len(output) == 1
-    assert "3 chanchitos" in output[0]
+    assert "3 cerditos" in output[0]
 
 
 # ---------------------------------------------------------------------------
@@ -175,7 +175,7 @@ def test_pigs_flee_one_pig(writer: Writer, output: list[str]) -> None:
     writer.pigs_flee(pigs_in_current_house=1, next_pig=next_pig)
     assert len(output) == 1
     assert "madera" in output[0]
-    assert "El chanchito corrió" in output[0]
+    assert "El cerdito corrió" in output[0]
 
 
 def test_pigs_flee_multiple_pigs(writer: Writer, output: list[str]) -> None:
@@ -183,7 +183,7 @@ def test_pigs_flee_multiple_pigs(writer: Writer, output: list[str]) -> None:
     writer.pigs_flee(pigs_in_current_house=2, next_pig=next_pig)
     assert len(output) == 1
     assert "ladrillo" in output[0]
-    assert "Los chanchitos corrieron" in output[0]
+    assert "Los cerditos corrieron" in output[0]
 
 
 # ---------------------------------------------------------------------------
