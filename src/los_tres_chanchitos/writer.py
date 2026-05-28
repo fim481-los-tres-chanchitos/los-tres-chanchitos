@@ -14,7 +14,7 @@ class Writer:
 
     def intro(self, pig_count: int) -> None:
         self._writer(
-            f"Había una vez {pig_count} chanchitos que decidieron construir sus propias casas "
+            f"Hace mucho tiempo, había una vez {pig_count} chanchitos que decidieron construir sus propias casas "
             "para vivir con tranquilidad en el bosque.\n"
         )
 
