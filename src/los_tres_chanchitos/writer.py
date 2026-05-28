@@ -54,14 +54,14 @@ class Writer:
     def house_survives(self) -> None:
         self._writer("Al ver que no podía derribarla, el lobo se dio por vencido.\n")
 
-    def ending(self, surviving_pig: Pig) -> None:
+    def ending(self, surviving_pig: Pig, count_surviving_pigs: int) -> None:
         self._writer(
             "Entonces el lobo trató de entrar por la chimenea. Pero los chanchitos "
             "encendieron el fuego de la estufa y pusieron una olla con agua. Al sentir "
             "el calor, el lobo se asustó, salió corriendo y no volvió.\n"
         )
         self._writer(
-            f"Los chanchitos se quedaron juntos en la casa de "
+            f"Los {count_surviving_pigs} chanchitos se quedaron juntos en la casa de "
             f"{surviving_pig.material}, contentos y a salvo.\n"
         )
         self._writer(
