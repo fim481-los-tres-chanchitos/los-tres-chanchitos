@@ -3,6 +3,10 @@ from collections.abc import Callable
 from los_tres_chanchitos.models import Pig
 
 
+def _ordinal(n: int) -> str:
+    ordinals = {1: "primer", 2: "segundo", 3: "tercer"}
+    return ordinals.get(n, str(n) + "°")
+
 class Writer:
     def __init__(self, writer: Callable[[str], None]) -> None:
         self._writer = writer
@@ -14,7 +18,7 @@ class Writer:
         )
 
     def building(self, pig: Pig, pig_number: int) -> None:
-        self._writer(f"El chanchito {pig_number}, {pig.personality}, dijo:\n")
+        self._writer(f"El {_ordinal(pig_number)} chanchito, {pig.personality}, dijo:\n")
         self._writer(f"— Ya lo decidí: haré mi casa de {pig.material}.\n")
         self._writer("— Me pondré a trabajar ahora mismo.\n")
         self._writer(f"Una casa de {pig.material} {pig.house_description}\n")

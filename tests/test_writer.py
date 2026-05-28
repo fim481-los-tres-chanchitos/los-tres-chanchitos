@@ -86,7 +86,7 @@ def test_building(writer: Writer, output: list[str]) -> None:
     assert len(output) == 4
     combined = "".join(output)
     assert "madera" in combined
-    assert str(pig_number) in combined
+    assert "segundo" in combined
 
 
 # ---------------------------------------------------------------------------
