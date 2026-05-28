@@ -1,4 +1,7 @@
 import argparse
+import json
+import sys
+from pathlib import Path
 
 from rich import print as rich_print
 
@@ -7,10 +10,6 @@ from los_tres_chanchitos.defaults import original_scenario
 from los_tres_chanchitos.models import Pig, Scenario, Wolf
 from los_tres_chanchitos.narrator import Narrator
 from los_tres_chanchitos.writer import Writer
-
-import json
-import sys
-from pathlib import Path
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -31,7 +30,6 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
-    
 
     if args.scenario:
         try:
@@ -51,6 +49,7 @@ def main(argv: list[str] | None = None) -> int:
     narrator = Narrator(writer)
     narrator.tell(scenario)
     return 0
+
 
 def load_scenario_from_file(path: str) -> Scenario:
     data = json.loads(Path(path).read_text(encoding="utf-8"))
