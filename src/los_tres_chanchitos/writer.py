@@ -23,14 +23,15 @@ def _ordinal(n: int) -> str:
 
 
 class Writer:
-    def __init__(self, writer: Callable[[str], None]) -> None:
+    def __init__(self, writer: Callable[[str], None], location="el bosque") -> None:
         self._writer = writer
+        self.location = location
 
     def intro(self, pig_count: int) -> None:
         noun = "**cerdito**" if pig_count == 1 else "**cerditos**"
         self._writer(
             f"Había una vez {pig_count} {noun} que decidieron construir sus propias casas "
-            "para vivir con tranquilidad en _el bosque_.\n"
+            f"para vivir con tranquilidad en _{self.location}_.\n"
         )
 
     def building(self, pig: Pig, pig_number: int) -> None:
