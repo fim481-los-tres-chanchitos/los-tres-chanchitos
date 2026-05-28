@@ -30,7 +30,7 @@ class Writer:
         noun = "**chanchito**" if pig_count == 1 else "**chanchitos**"
         self._writer(
             f"Había una vez {pig_count} {noun} que decidieron construir sus propias casas "
-            "para vivir con tranquilidad en el bosque.\n"
+            "para vivir con tranquilidad en _el bosque_.\n"
         )
 
     def building(self, pig: Pig, pig_number: int) -> None:
