@@ -7,6 +7,7 @@ def _ordinal(n: int) -> str:
     ordinals = {1: "primer", 2: "segundo", 3: "tercer"}
     return ordinals.get(n, str(n) + "°")
 
+
 class Writer:
     def __init__(self, writer: Callable[[str], None]) -> None:
         self._writer = writer
