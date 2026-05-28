@@ -36,7 +36,7 @@ def test_single_pig_indestructible_house() -> None:
     Narrator(Writer(lines.append)).tell(scenario)
 
     out = "\n".join(lines)
-    assert "Había una vez 1 chanchitos" in out
+    assert "Había una vez 1 chanchito" in out
     assert out.count("¡Soplaré y soplaré, y tu casa derribaré!") == blows_limit
     assert out.count("La casa de ladrillos resistió.") == blows_limit
     assert "Al ver que no podía derribarla, el lobo se dio por vencido." in out
@@ -63,7 +63,7 @@ def test_single_pig_fragile_house() -> None:
     Narrator(Writer(lines.append)).tell(scenario)
 
     out = "\n".join(lines)
-    assert "Había una vez 1 chanchitos" in out
+    assert "Había una vez 1 chanchito" in out
     assert out.count("¡Soplaré y soplaré, y tu casa derribaré!") == blows_to_fall
     assert out.count("La casa de madera resistió.") == blows_to_fall - 1
     assert "La casa de madera cayó." in out
