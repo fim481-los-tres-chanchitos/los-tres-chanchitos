@@ -23,6 +23,7 @@ def test_pigs_are_numbered_starting_from_1() -> None:
 
 def test_single_pig_indestructible_house() -> None:
     blows_limit = 3
+    surviving_pigs = 3
     wolf = Wolf(blows_limit=blows_limit)
     pig = Pig(
         material="ladrillos",

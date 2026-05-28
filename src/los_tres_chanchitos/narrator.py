@@ -21,7 +21,7 @@ class Narrator:
             self._writer.error()
             return
 
-        self._writer.ending(surviving_pig)
+        self._writer.ending(surviving_pig, len(scenario.pigs))
 
     def _tell_wolf_visits_and_find_surviving_pig(
         self, scenario: Scenario
