@@ -39,8 +39,8 @@ class Writer:
         self._writer("— Me pondré a trabajar ahora mismo.\n")
         self._writer(f"Una casa de {pig.material} {pig.house_description}\n")
 
-    def wolf_arrives(self) -> None:
-        self._writer("Un día apareció un lobo hambriento.\n")
+    def wolf_arrives(self, adjective: str = "malvado") -> None:
+        self._writer(f"Un día apareció un lobo {adjective}.\n")
 
     def wolf_knocks(self, pig: Pig, blow_number: int) -> None:
         if blow_number == 1:
