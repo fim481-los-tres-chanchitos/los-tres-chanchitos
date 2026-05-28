@@ -27,7 +27,7 @@ class Writer:
         self._writer = writer
 
     def intro(self, pig_count: int) -> None:
-        noun = "**cerdito**" if pig_count == 1 else "**chanchitos**"
+        noun = "**cerdito**" if pig_count == 1 else "**cerditos**"
         self._writer(
             f"Había una vez {pig_count} {noun} que decidieron construir sus propias casas "
             "para vivir con tranquilidad en el bosque.\n"

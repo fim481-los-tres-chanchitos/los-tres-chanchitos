@@ -41,7 +41,7 @@ def test_single_pig_indestructible_house() -> None:
     assert out.count("La _casa de ladrillos_ resistió.") == blows_limit
     assert "Al ver que no podía derribarla, el **lobo** se dio por vencido." in out
     assert (
-        "Los **cerdito** se quedaron juntos en la _casa de ladrillos_, contentos y a salvo."
+        "Los **cerditos** se quedaron juntos en la _casa de ladrillos_, contentos y a salvo."
         in out
     )
     assert "corrieron hacia la _casa de" not in out
@@ -95,7 +95,7 @@ def test_two_pig_indestructible_houses() -> None:
     Narrator(Writer(lines.append)).tell(scenario)
 
     out = "\n".join(lines)
-    assert "Había una vez 2 **cerdito**" in out
+    assert "Había una vez 2 **cerditos**" in out
     assert out.count("¡Soplaré y soplaré, y tu casa derribaré!") == blows_limit
     assert out.count("La _casa de ladrillos_ resistió.") == blows_limit
     assert "Al ver que no podía derribarla, el **lobo** se dio por vencido." in out
