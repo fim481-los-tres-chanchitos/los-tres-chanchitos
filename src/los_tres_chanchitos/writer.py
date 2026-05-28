@@ -27,28 +27,30 @@ class Writer:
         self._writer = writer
 
     def intro(self, pig_count: int) -> None:
-        noun = "chanchito" if pig_count == 1 else "chanchitos"
+        noun = "**chanchito**" if pig_count == 1 else "**chanchitos**"
         self._writer(
             f"Había una vez {pig_count} {noun} que decidieron construir sus propias casas "
             "para vivir con tranquilidad en el bosque.\n"
         )
 
     def building(self, pig: Pig, pig_number: int) -> None:
-        self._writer(f"El {_ordinal(pig_number)} chanchito, {pig.personality}, dijo:\n")
-        self._writer(f"— Ya lo decidí: haré mi casa de {pig.material}.\n")
+        self._writer(
+            f"El {_ordinal(pig_number)} **chanchito**, {pig.personality}, dijo:\n"
+        )
+        self._writer(f"— Ya lo decidí: haré mi _casa de {pig.material}_.\n")
         self._writer("— Me pondré a trabajar ahora mismo.\n")
-        self._writer(f"Una casa de {pig.material} {pig.house_description}\n")
+        self._writer(f"Una _casa de {pig.material}_ {pig.house_description}\n")
 
     def wolf_arrives(self) -> None:
-        self._writer("Un día apareció un lobo hambriento.\n")
+        self._writer("Un día apareció un **lobo** hambriento.\n")
 
     def wolf_knocks(self, pig: Pig, blow_number: int) -> None:
         if blow_number == 1:
             self._writer(
-                f"El lobo fue a la casa de {pig.material}, golpeó la puerta y dijo:\n"
+                f"El **lobo** fue a la _casa de {pig.material}_, golpeó la puerta y dijo:\n"
             )
         else:
-            self._writer("El lobo golpeó la puerta otra vez y dijo:\n")
+            self._writer("El **lobo** golpeó la puerta otra vez y dijo:\n")
 
     def wolf_threatens_and_blows(self, blow_number: int) -> None:
         self._writer("— ¡Soplaré y soplaré, y tu casa derribaré!\n")
@@ -60,31 +62,35 @@ class Writer:
             self._writer(f"Y sopló por {blow_number}ª vez.\n")
 
     def house_resists(self, pig: Pig) -> None:
-        self._writer(f"La casa de {pig.material} resistió.\n")
+        self._writer(f"La _casa de {pig.material}_ resistió.\n")
 
     def house_falls(self, pig: Pig) -> None:
-        self._writer(f"La casa de {pig.material} cayó.\n")
+        self._writer(f"La _casa de {pig.material}_ cayó.\n")
 
     def pigs_flee(self, pigs_in_current_house: int, next_pig: Pig) -> None:
         if pigs_in_current_house == 1:
-            self._writer(f"El chanchito corrió hacia la casa de {next_pig.material}.\n")
+            self._writer(
+                f"El **chanchito** corrió hacia la _casa de {next_pig.material}_.\n"
+            )
         else:
             self._writer(
-                f"Los chanchitos corrieron hacia la casa de {next_pig.material}.\n"
+                f"Los **chanchitos** corrieron hacia la _casa de {next_pig.material}_.\n"
             )
 
     def house_survives(self) -> None:
-        self._writer("Al ver que no podía derribarla, el lobo se dio por vencido.\n")
+        self._writer(
+            "Al ver que no podía derribarla, el **lobo** se dio por vencido.\n"
+        )
 
     def ending(self, surviving_pig: Pig) -> None:
         self._writer(
-            "Entonces el lobo trató de entrar por la chimenea. Pero los chanchitos "
+            "Entonces el **lobo** trató de entrar por la chimenea. Pero los **chanchitos** "
             "encendieron el fuego de la estufa y pusieron una olla con agua. Al sentir "
-            "el calor, el lobo se asustó, salió corriendo y no volvió.\n"
+            "el calor, el **lobo** se asustó, salió corriendo y no volvió.\n"
         )
         self._writer(
-            f"Los chanchitos se quedaron juntos en la casa de "
-            f"{surviving_pig.material}, contentos y a salvo.\n"
+            f"Los **chanchitos** se quedaron juntos en la _casa de "
+            f"{surviving_pig.material}_, contentos y a salvo.\n"
         )
         self._writer(
             "Hacer las cosas con paciencia y esfuerzo suele dar mejores resultados "
