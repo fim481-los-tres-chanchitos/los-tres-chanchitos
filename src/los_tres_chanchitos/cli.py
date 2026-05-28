@@ -24,6 +24,11 @@ def build_parser() -> argparse.ArgumentParser:
         metavar="FILE",
         help="Ruta a un archivo JSON con un escenario alternativo.",
     )
+    parser.add_argument(
+        "--location",
+        metavar="NAME",
+        help="Ubicación del cuento",
+    )
     return parser
 
 
@@ -45,7 +50,9 @@ def main(argv: list[str] | None = None) -> int:
     else:
         scenario = original_scenario()
 
-    writer = Writer(rich_print)
+    writer = Writer(
+        rich_print, args.location if args.location is not None else "el bosque"
+    )
     narrator = Narrator(writer)
     narrator.tell(scenario)
     return 0
