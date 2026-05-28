@@ -17,7 +17,7 @@ def test_pigs_are_numbered_starting_from_1() -> None:
     Narrator(Writer(lines.append)).tell(scenario)
 
     out = "\n".join(lines)
-    assert "El chanchito 1," in out
+    assert "El primer chanchito," in out
     assert "El chanchito 0," not in out
 
 
