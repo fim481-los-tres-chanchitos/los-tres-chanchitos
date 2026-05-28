@@ -13,6 +13,7 @@ class Writer:
             f"Había una vez {pig_count} {noun} que decidieron construir sus propias casas "
             "para vivir con tranquilidad en el bosque.\n"
         )
+
     def building(self, pig: Pig, pig_number: int) -> None:
         self._writer(f"El chanchito {pig_number}, {pig.personality}, dijo:\n")
         self._writer(f"— Ya lo decidí: haré mi casa de {pig.material}.\n")
