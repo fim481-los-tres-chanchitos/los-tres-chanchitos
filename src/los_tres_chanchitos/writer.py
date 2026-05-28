@@ -23,7 +23,7 @@ def _ordinal(n: int) -> str:
 
 
 class Writer:
-    def __init__(self, writer: Callable[[str], None], location:str) -> None:
+    def __init__(self, writer: Callable[[str], None], location: str) -> None:
         self._writer = writer
         self.location = location
 
