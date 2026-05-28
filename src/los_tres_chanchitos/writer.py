@@ -2,6 +2,20 @@ from collections.abc import Callable
 
 from los_tres_chanchitos.models import Pig
 
+# CS434: ordinales femeninos para los soplidos del 2.o al 10.o.
+# Más allá del 10.o se mantiene el formato numérico (p. ej. "50ª vez").
+_FEMININE_ORDINALS: dict[int, str] = {
+    2: "segunda",
+    3: "tercera",
+    4: "cuarta",
+    5: "quinta",
+    6: "sexta",
+    7: "séptima",
+    8: "octava",
+    9: "novena",
+    10: "décima",
+}
+
 
 class Writer:
     def __init__(self, writer: Callable[[str], None]) -> None:
@@ -34,6 +48,8 @@ class Writer:
         self._writer("— ¡Soplaré y soplaré, y tu casa derribaré!\n")
         if blow_number == 1:
             self._writer("Y sopló con fuerza.\n")
+        elif blow_number in _FEMININE_ORDINALS:
+            self._writer(f"Y sopló por {_FEMININE_ORDINALS[blow_number]} vez.\n")
         else:
             self._writer(f"Y sopló por {blow_number}ª vez.\n")
 

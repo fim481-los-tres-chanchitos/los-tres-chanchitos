@@ -122,13 +122,13 @@ def test_wolf_threatens_and_blows_first(writer: Writer, output: list[str]) -> No
 def test_wolf_threatens_and_blows_second(writer: Writer, output: list[str]) -> None:
     writer.wolf_threatens_and_blows(2)
     assert len(output) == 2
-    assert "por 2ª vez" in output[1]
+    assert "por segunda vez" in output[1]
 
 
 def test_wolf_threatens_and_blows_tenth(writer: Writer, output: list[str]) -> None:
     writer.wolf_threatens_and_blows(10)
     assert len(output) == 2
-    assert "por 10ª vez" in output[1]
+    assert "por décima vez" in output[1]
 
 
 def test_wolf_threatens_and_blows_beyond_tenth(
