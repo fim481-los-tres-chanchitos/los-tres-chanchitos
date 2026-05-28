@@ -17,8 +17,8 @@ def test_pigs_are_numbered_starting_from_1() -> None:
     Narrator(Writer(lines.append)).tell(scenario)
 
     out = "\n".join(lines)
-    assert "El primer **chanchito**," in out
-    assert "El **chanchito** 0," not in out
+    assert "El primer **cerdito**," in out
+    assert "El **cerdito** 0," not in out
 
 
 def test_single_pig_indestructible_house() -> None:
@@ -36,12 +36,12 @@ def test_single_pig_indestructible_house() -> None:
     Narrator(Writer(lines.append)).tell(scenario)
 
     out = "\n".join(lines)
-    assert "Había una vez 1 **chanchito**" in out
+    assert "Había una vez 1 **cerdito**" in out
     assert out.count("¡Soplaré y soplaré, y tu casa derribaré!") == blows_limit
     assert out.count("La _casa de ladrillos_ resistió.") == blows_limit
     assert "Al ver que no podía derribarla, el **lobo** se dio por vencido." in out
     assert (
-        "Los **chanchitos** se quedaron juntos en la _casa de ladrillos_, contentos y a salvo."
+        "Los **cerdito** se quedaron juntos en la _casa de ladrillos_, contentos y a salvo."
         in out
     )
     assert "corrieron hacia la _casa de" not in out
@@ -63,7 +63,7 @@ def test_single_pig_fragile_house() -> None:
     Narrator(Writer(lines.append)).tell(scenario)
 
     out = "\n".join(lines)
-    assert "Había una vez 1 **chanchito**" in out
+    assert "Había una vez 1 **cerdito**" in out
     assert out.count("¡Soplaré y soplaré, y tu casa derribaré!") == blows_to_fall
     assert out.count("La _casa de madera_ resistió.") == blows_to_fall - 1
     assert "La _casa de madera_ cayó." in out
@@ -95,12 +95,12 @@ def test_two_pig_indestructible_houses() -> None:
     Narrator(Writer(lines.append)).tell(scenario)
 
     out = "\n".join(lines)
-    assert "Había una vez 2 **chanchitos**" in out
+    assert "Había una vez 2 **cerdito**" in out
     assert out.count("¡Soplaré y soplaré, y tu casa derribaré!") == blows_limit
     assert out.count("La _casa de ladrillos_ resistió.") == blows_limit
     assert "Al ver que no podía derribarla, el **lobo** se dio por vencido." in out
     assert (
-        "Los **chanchitos** se quedaron juntos en la _casa de ladrillos_, contentos y a salvo."
+        "Los **cerditos** se quedaron juntos en la _casa de ladrillos_, contentos y a salvo."
         in out
     )
     assert "corrieron hacia la _casa de" not in out
@@ -128,15 +128,15 @@ def test_two_pigs_first_falls() -> None:
 
     out = "\n".join(lines)
     assert "La _casa de paja_ cayó." in out
-    assert "El **chanchito** corrió hacia la _casa de ladrillos_." in out
+    assert "El **cerdito** corrió hacia la _casa de ladrillos_." in out
     assert (
         "Los" not in out.split("corrieron", maxsplit=1)[0].split("\n")[-1]
         if "corrieron" in out
         else True
     )
-    assert "Los **chanchitos** corrieron hacia la _casa de ladrillos_." not in out
+    assert "Los **cerditos** corrieron hacia la _casa de ladrillos_." not in out
     assert (
-        "Los **chanchitos** se quedaron juntos en la _casa de ladrillos_, contentos y a salvo."
+        "Los **cerditos** se quedaron juntos en la _casa de ladrillos_, contentos y a salvo."
         in out
     )
 
@@ -162,16 +162,16 @@ def test_two_pigs_both_fall() -> None:
     Narrator(Writer(lines.append)).tell(scenario)
 
     out = "\n".join(lines)
-    assert "Había una vez 2 **chanchitos**" in out
+    assert "Había una vez 2 **cerditos**" in out
     assert "La _casa de paja_ cayó." in out
-    assert "El **chanchito** corrió hacia la _casa de madera_." in out
+    assert "El **cerdito** corrió hacia la _casa de madera_." in out
     assert (
         out.count("¡Soplaré y soplaré, y tu casa derribaré!") == 1 + 2
     )  # 1 on paja + 2 on madera
     assert "La _casa de madera_ resistió." in out
     assert "La _casa de madera_ cayó." in out
     assert (
-        "Los **chanchitos** corrieron hacia la _casa de" not in out
+        "Los **cerditos** corrieron hacia la _casa de" not in out
     )  # no third house to flee to
     assert "*** ERROR: escenario inesperado ***" in out
     assert "contentos y a salvo." not in out
@@ -206,11 +206,11 @@ def test_three_pigs_two_fall() -> None:
 
     out = "\n".join(lines)
     assert "La _casa de paja_ cayó." in out
-    assert "El **chanchito** corrió hacia la _casa de madera_." in out
+    assert "El **cerdito** corrió hacia la _casa de madera_." in out
     assert "La _casa de madera_ cayó." in out
-    assert "Los **chanchitos** corrieron hacia la _casa de ladrillos_." in out
+    assert "Los **cerditos** corrieron hacia la _casa de ladrillos_." in out
     assert (
-        "Los **chanchitos** se quedaron juntos en la _casa de ladrillos_, contentos y a salvo."
+        "Los **cerditos** se quedaron juntos en la _casa de ladrillos_, contentos y a salvo."
         in out
     )
 

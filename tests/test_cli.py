@@ -9,7 +9,7 @@ def test_main_runs(capsys) -> None:
     exit_code = main([])
     assert exit_code == 0
     out = capsys.readouterr().out
-    assert "Había una vez 3 **chanchitos**" in out
+    assert "Había una vez 3 **cerditos**" in out
 
 
 def test_main_prints_wolf_attack(capsys) -> None:

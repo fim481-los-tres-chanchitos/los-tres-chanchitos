@@ -27,7 +27,7 @@ class Writer:
         self._writer = writer
 
     def intro(self, pig_count: int) -> None:
-        noun = "**chanchito**" if pig_count == 1 else "**chanchitos**"
+        noun = "**cerdito**" if pig_count == 1 else "**chanchitos**"
         self._writer(
             f"Había una vez {pig_count} {noun} que decidieron construir sus propias casas "
             "para vivir con tranquilidad en el bosque.\n"
@@ -35,7 +35,7 @@ class Writer:
 
     def building(self, pig: Pig, pig_number: int) -> None:
         self._writer(
-            f"El {_ordinal(pig_number)} **chanchito**, {pig.personality}, dijo:\n"
+            f"El {_ordinal(pig_number)} **cerdito**, {pig.personality}, dijo:\n"
         )
         self._writer(f"— Ya lo decidí: haré mi _casa de {pig.material}_.\n")
         self._writer("— Me pondré a trabajar ahora mismo.\n")
@@ -70,11 +70,11 @@ class Writer:
     def pigs_flee(self, pigs_in_current_house: int, next_pig: Pig) -> None:
         if pigs_in_current_house == 1:
             self._writer(
-                f"El **chanchito** corrió hacia la _casa de {next_pig.material}_.\n"
+                f"El **cerdito** corrió hacia la _casa de {next_pig.material}_.\n"
             )
         else:
             self._writer(
-                f"Los **chanchitos** corrieron hacia la _casa de {next_pig.material}_.\n"
+                f"Los **cerditos** corrieron hacia la _casa de {next_pig.material}_.\n"
             )
 
     def house_survives(self) -> None:
@@ -84,12 +84,12 @@ class Writer:
 
     def ending(self, surviving_pig: Pig) -> None:
         self._writer(
-            "Entonces el **lobo** trató de entrar por la chimenea. Pero los **chanchitos** "
+            "Entonces el **lobo** trató de entrar por la chimenea. Pero los **cerditos** "
             "encendieron el fuego de la estufa y pusieron una olla con agua. Al sentir "
             "el calor, el **lobo** se asustó, salió corriendo y no volvió.\n"
         )
         self._writer(
-            f"Los **chanchitos** se quedaron juntos en la _casa de "
+            f"Los **cerditos** se quedaron juntos en la _casa de "
             f"{surviving_pig.material}_, contentos y a salvo.\n"
         )
         self._writer(
